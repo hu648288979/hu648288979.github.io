@@ -1,0 +1,117 @@
+<html>
+	<head>
+		<title></title>
+	</head>
+	<body>
+  
+  <h1>获取验证码按钮</h1>
+		<!--<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8" />
+		<title></title>
+	</head>
+	<body>
+		<input type="button" name="" id="ipt" value="获取手机验证码" />
+	</body>
+	<script type="text/javascript">
+	 var ipt=document.getElementById("ipt");
+		ipt.addEventListener('click',clickHander,false);
+		var t=5;
+		function clickHander(){
+			ipt.value=t+"秒后重新获取";                设置点击后按钮的value值
+			ipt.disabled=true;                         设置点击后按钮的disabled属性
+			 siv1=window.setInterval(updata,1000);       设置一个延时器
+		}    
+		
+		
+		function updata(){	
+			ipt.value=t+"秒后重新获取";               设置点击函数的初始value值
+			if(t<=0){          
+		    	ipt.value="获取手机验证码";          当小于0时关闭disabled属性
+				ipt.disabled=false;
+				t--;
+				t=5;                
+				 clearInterval(siv1);            清除延时器
+			}
+		};
+		updata();
+	</script>
+</html>-->
+
+<h1>倒计时</h1>
+<!--<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8" />
+		<title></title>
+	</head>
+	<body>
+		
+		<div id="box">
+			<img src=""/>
+			<img src=""/>
+			<img src=""/>
+			<img src=""/>
+			<img src=""/>
+			<img src=""/>
+			<img src=""/>
+			<img src=""/>
+		</div>
+	</body>
+	<script type="text/javascript">
+	function uu(){                                              
+		var img=document.getElementsByTagName("img");
+		var arr=['img/0.png','img/1.png','img/2.png','img/3.png','img/4.png','img/5.png','img/6.png','img/7.png','img/8.png','img/9.png']; 创建图片数组
+		var timea=new Date();         var一个时间
+		var hour=timea.getHours();       得到小时
+		var min=timea.getMinutes();      得到分钟
+		var sec=timea.getSeconds();    得到秒
+		var a=parseInt(hour/10);     第一个小时数
+		var b=hour%10;               第二个小时数
+		var c=parseInt(min/10);       第一个分钟数
+		var d=min%10;                 第二个分钟数
+		var e=parseInt(sec/10);      第一个秒数
+		var f=sec%10;                 第二个秒数
+		img[0].src=arr[a];         设置时间
+		img[1].src=arr[b];
+		img[2].src=arr[c];
+		img[3].src=arr[d];
+		img[4].src=arr[e];
+		img[6].src=arr[f];
+	}
+	setInterval(uu,1000);     设置延时器
+	</script>
+</html>-->
+
+<h1>坐标</h1>
+<!--<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8" />
+		<title></title>
+	</head>
+	<body>
+		
+		<p>x坐标:</p>                  x坐标
+		<span id="sp1"></span>
+		<p>y坐标:</p>                 y坐标
+		<span id="sp2"></span>
+		<img src="img/111.gif" id="img" alt="" style="width: 20px;position: absolute;"/>    移动图片
+	</body>
+	<script type="text/javascript">
+
+           var img=document.getElementById("img");         得到图片和坐标
+         var sp1=document.getElementById("sp1");
+         var sp2=document.getElementById("sp2");
+         window.addEventListener("mousemove",moveHander);      给鼠标移动时添加一个函数
+         function moveHander(e){         
+         	sp1.innerHTML=e.clientX;                    坐标的inner值
+         	sp2.innerHTML=e.clientY;
+         	img.style.left=e.clientX-5+"px";         让鼠标在图片正中间
+         	img.style.top=e.clientY-5+"px";
+         }
+	</script>
+</html>-->
+</body>
+</html>
