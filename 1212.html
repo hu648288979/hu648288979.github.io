@@ -7,10 +7,10 @@
   <h1>获取验证码按钮</h1>
 		
 
-	<body>
+	
 		<input type="button" name="" id="ipt" value="获取手机验证码" />
-	</body>
-	<script type="text/javascript">
+	
+	
 	 var ipt=document.getElementById("ipt");
 		ipt.addEventListener('click',clickHander,false);
 		var t=5;
@@ -32,7 +32,7 @@
 			}
 		};
 		updata();
-	</script>
+	
 
 
 <h1>倒计时</h1>
@@ -40,7 +40,7 @@
 
 	
 	
-	<body>
+	
 		
 		<div id="box">
 			<img src=""/>
@@ -52,8 +52,8 @@
 			<img src=""/>
 			<img src=""/>
 		</div>
-	</body>
-	<script type="text/javascript">
+	
+
 	function uu(){                                              
 		var img=document.getElementsByTagName("img");
 		var arr=['img/0.png','img/1.png','img/2.png','img/3.png','img/4.png','img/5.png','img/6.png','img/7.png','img/8.png','img/9.png']; 创建图片数组
@@ -75,21 +75,20 @@
 		img[6].src=arr[f];
 	}
 	setInterval(uu,1000);     设置延时器
-	</script>
+	
 
 
 <h1>坐标</h1>
 
 
-	<body>
+	
 		
 		<p>x坐标:</p>                  x坐标
 		<span id="sp1"></span>
 		<p>y坐标:</p>                 y坐标
 		<span id="sp2"></span>
 		<img src="img/111.gif" id="img" alt="" style="width: 20px;position: absolute;"/>    移动图片
-	</body>
-	<script type="text/javascript">
+
 
            var img=document.getElementById("img");         得到图片和坐标
          var sp1=document.getElementById("sp1");
@@ -101,7 +100,6 @@
          	img.style.left=e.clientX-5+"px";         让鼠标在图片正中间
          	img.style.top=e.clientY-5+"px";
          }
-	</script>
 
 	  
 </body>
