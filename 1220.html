@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+	</head>
+	<body>
+
+        <div>
+        	<h2>this指向、原型继承</h2>
+        			<pre>
+1、对象
+var obj = {};
+var num = 3;
+obj.num = 5;
+obj.f=function(){
+	alert(this.num);
+}
+obj.f();
+alert(num);
+//第一个弹窗显示5；第二个显示3；
+因为第一个this指的是obj，所以obj.num=5;
+第二个this指的是window，所以num=3;
+
+2、全局指向
+var num = 10;
+function foo(){
+	this.num = 1;
+}
+foo();
+alert(num);
+this指全局window，所以一开始num赋值10，但执行函数时又将1赋值给num，所以最终num等于1
+
+3、函数返回指向
+var num = 1;
+function foo(){
+	return function(){
+		return this.num;
+	}
+}
+var f = foo();
+console.log(f());
+显示1；因为当你运行foo函数后return的整个函数就在window下了，
+再次执行return出来的函数时它的this指的是window，所以最终显示1；
+
+apply()  改变函数内部this指向对象
+var num = 10；
+var obj = {}；
+obj.num=1;
+obj.f = function(){
+	alert(this.num);
+}
+obj.f.apply();
+假设你没在apply里面写任何参数，那么它默认的就是window；
+所以this.num显示10；
+obj.f.apply(obj)
+假设你在apply()里面写了obj，那么this指向的就是obj；
+所以this.num显示1；
+		</pre>
+        </div>
+        
+        <br/>
+        <div>
+        	<pre>
+
+var say="Hello World";
+var obj={};
+obj.say="Hello Obj";
+obj.foo=function(){
+	return function(){
+		return this.say;
+	}
+}
+alert(obj.foo()());
+
+
+
+var say="Hello World";
+var obj={};
+obj.say="Hello Obj";
+obj.foo=function(){
+	var that=this;
+	return function(){
+		return that.say;
+	}
+}
+alert(obj.foo()());
+
+
+        	</pre>
+        </div>
+
+	</body>
+</html>
