@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<style>
+			*{
+				margin: 0px;
+				padding: 0px;
+			}
+			#case{
+				margin: auto;
+				width: 500px;
+				
+			}
+			h1{
+				width: 500px;
+				text-align: center;
+			}
+		</style>
+	</head>
+	<body>
+		<div id="case">
+		<h1>一.跑马灯总结</h1>
+		<h3>代码</h3>
+		<pre>
+				<body>
+	 < head>
+		< meta charset="UTF-8">
+		< title></title>
+		< style type="text/css">
+			*{
+				margin: 0px;
+				padding: 0px;
+			}
+			#caseBig{
+				width: 200px;
+			/*	background: red;	*/		显示的div宽度
+			/*	overflow-x:scroll;*/
+				overflow-x:hidden;
+			}
+			#caseSmall{
+				width: 380px;                实际的div宽度
+			}
+			
+		< /style>
+	< /head>
+		< div id="caseBig">          
+			< div id="caseSmall">
+				< span>wowowowowowowowowo</span>< span>wowowowowowowowowowowo</span>
+			< /div>
+		< /div>
+	< /body>
+	< script type="text/javascript">
+		var caseBig=document.getElementById("caseBig");
+		
+		setInterval(function(){
+			caseBig.scrollLeft+=8;            延时器
+			if(caseBig.scrollLeft==180){       
+				caseBig.scrollLeft=0;       循环播放
+				
+			}
+		},100)
+	< /script>           
+		</pre>
+		<h1>视频 </h1>
+		<pre>
+			tiao.addEventListener("mousedown",function(e){
+				
+				isDown=true;                                    
+		})
+	    tiao.addEventListener("mousemove",function(e){
+			if(isDown==true){tuoq.style.width=e.clientX-80+"px"}     点击时改变进度
+		})
+	    window.addEventListener("mouseup",function(e){
+			 
+				tuoq.style.width=e.clientX-80+"px" 
+			isDown=false
+		})         拖动条代码
+		
+		var n=0;
+        var arr=["img/婚礼现场.webm","img/movie.ogg"]
+        var nextbtn=document.getElementById("nextbtn")
+        nextbtn.addEventListener("click",function(){
+        	n++;
+        	videos.src=arr[n];
+        	play()
+        	 点击播放下一个视频
+        	 
+        	 设置音量
+        	            var v=document.getElementById("v")
+           var increase=document.getElementById("increase")
+videos.volume=0.3;
+v.innerHTML=videos.volume
+increase.onclick=function(){
+	v.innerHTML+=1;
+	videos.volume+=1
+}
+		</pre>
+		</div>
+	</body>
+</html>
