@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<body>
+		<h1>打砖块游戏</h1>
+		<pre>
+			window.onload = init;
+			初始化游戏设置和参数
+function init(){
+	trace("游戏初始化完毕！");
+	canvas = document.getElementById("canva");
+	ctx = canvas.getContext("2d");
+	背景
+	bg = addImg("assets/bg.png");生成背景图片
+	球
+	ball = addImg("assets/ball.png");生成球图片
+	挡板
+	board = addImg("assets/board.png");生成档板图片
+	
+	createBrick();创建块
+	
+	st = setInterval(updateCanvas,1000 / 60);画布刷新时间每秒60次
+}
+
+ 		生成图片，封装一个函数
+		function addImg(_src){
+			var img=new Image(); 
+			img.src=_src;
+			return img;
+		}
+		
+		刷新画布
+		function updateCanvas(){
+			ctx.clearRect(0,0,cW,cH);
+			ctx.drawImage(bg,0,0)            背景图片位置
+			ctx.drawImage(ball,ballX,ballY)      球图片位置
+			ctx.drawImage(board,boardX,boardY)     档板图片位置
+			
+			ballMOve();  球移动函数
+			ballhit();  球撞击边界函数
+			
+			drawBricks();      生成方块
+	        ballBricksHit();判定方块和球撞击函数
+		}
+		
+		
+		window.onmousemove=mouseMove;
+		window.onkeydown=keyDown;
+			function mouseMove(e){
+			boardX=e.clientX-boardW/2;
+		}                                      通过鼠标和键盘控制档板函数
+		function keyDown(e){
+			if(e.keyCode==37){
+				boardX-=10;
+			}
+		if(e.keyCode==39){
+				boardX+=10;
+			}
+		}
+		function createBrick(){        创建24个块
+				for(var i = 0;i<4;i++){
+		for(var j = 0;j<6;j++){
+			var n=parseInt(Math.random()*6+1)   随机数
+			str="img/"+n+".png";       
+			var item = addImg(str);        随机图片
+			var x = j* (imgW  + 10);         得到图片宽,宽隔开10
+			var y = i * (imgH + 5) + 30;    得到图片高,高隔开5
+			var obj = {item:item,x:x,y:y};   申明一个对象
+			bricks.push(obj);       把对象放进数组
+		
+		}
+	}
+		}
+		function drawBricks(){  再画布里面申明块
+			var l=bricks.length
+			for(var i=0;i<l;i++){  得到所有数字里面的对象
+				var item=bricks[i];  
+				ctx.drawImage(item.item,item.x,item.y);
+			   画布的块
+			}
+		}
+			function textHit(x1,y1,w,h,x2,y2){  
+	if(x1<x2&&x1+w>x2&&y2>y1&&y2<y1+h){
+		return true;
+	}else{                                判断是否撞击,撞击输出true,没撞击输出false
+		return false;
+	}
+		}
+		function ballhit(){
+		var b=textHit(boardX,boardY,boardW,boardH,ballX+25,ballY+50)
+		if(b){
+			vY*=-1;
+			ballY=ballY-20;           撞击后改变球的y轴速度
+		}
+		}
+function ballBricksHit(){             方块和球的撞击检测
+	var l = bricks.length;
+	for(var i = 0;i<l-1;i++){
+		var item = bricks[i].item;
+		var b = textHit(bricks[i].x,bricks[i].y,item.width,item.height,ballX,ballY);
+		if(b){
+			bricks.splice(i,1);
+			vY *= -1;
+			item = null;           撞击后改变球的y轴速度,把方块清除,减少内纯
+		}
+	}
+}
+	
+		</pre>
+	</body>
+</html>
