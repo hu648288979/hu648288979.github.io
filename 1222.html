@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<body>
+		<h1>AJAX</h1>
+		<p>AJAX = 异步 JavaScript 和 XML</p>
+		<pre>
+			AJAX 是一种用于创建快速动态网页的技术。
+
+通过在后台与服务器进行少量数据交换，AJAX 可以使网页实现异步更新。这意味着可以在不重新加载整个网页的情况下，对网页的某部分进行更新。
+
+传统的网页（不使用 AJAX）如果需要更新内容，必需重载整个网页面。
+
+有很多使用 AJAX 的应用程序案例：新浪微博、Google 地图、开心网等等。
+
+		</pre>
+		<pre>
+			第一步：创建XMLHttpRequest对象
+			var nhr=new XMLHttpRequset
+			第二步:向服务器发送请求open()和send()方法；
+			nhr.open(method,url,async);规定请求的类型、URL 以及是否异步处理请求
+			method:请求的类型GET或者POST,
+			POST比GET更安全，传输大量数据时用POST，GET跟简单快捷大部分时用GET;
+			url：文件在服务器上的位置 
+             async：异步true同步false,默认true
+			nhr.send()将请求发送到服务器
+          
+		</pre>
+		<pre>onreadystatechange 事件
+		当请求被发送到服务器时，我们需要执行一些基于响应的任务。
+         readyState 存有 XMLHttpRequest 的状态。从 0 到 4 发生变化。
+       0请求为初始化 1服务器已建立链接 2请求已接收 3请求处理中 4请求已完成，且响应已就绪
+       status 200 OK  404未找到页面
+onreadystatechange 事件被触发 5 次（0 - 4），对应着 readyState 的每个变化
+  nhr.onreadystatechange=function(){
+  	if(nhr.readystate==4&&nhr.status==200){
+  		
+  	}
+  }
+		</pre>
+		
+	</body>
+</html>
