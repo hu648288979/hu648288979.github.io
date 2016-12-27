@@ -1,0 +1,191 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8" />
+		<title></title>
+		<style type="text/css">
+			#box{
+				margin: auto;width: 300px;
+			}
+		</style>
+	</head>
+	<body>
+		<div id="box">
+			
+	
+				<h2>JQuery</h2>
+		<h3>JQuery的引用</h3>
+		<p>1、官网下载  2、百度等CDN</p>
+		<br/>
+		<h3>原生Javascript与JQuery的区别</h3>
+		<div>
+			<p>1、代码量</p>
+			<p>2、兼容性</p>
+			<p>3、动画效果</p>
+			<p>4、其他</p>
+		</div>
+		<br/>
+		<h3>选择器</h3>
+		<div>
+			<pre>
+<span id="id">
+	id选择器
+</span>
+$(document).ready(function (){
+	$("#id").click(function (){
+		$("#li1").toggleClass("cssClass")
+	})
+}
+<span id="class">
+	class选择器
+</span>
+$("#class").click(function (){
+	$(".li2").toggleClass("cssClass")
+})
+<span id="btn1">
+             标签选择器
+</span>
+$("#btn1").click(function (){ul
+	$("li").toggleClass("cssClass")
+})
+<span id="btn2">
+	通配选择器
+</span>
+$("#btn2").click(function (){
+	$("*").toggleClass("cssClass")
+})
+<span id="btn3">
+	群组选择器
+</span>
+$("#btn3").click(function (){
+	$("ul,span,div").toggleClass("cssClass")
+})
+<span id="btn4">
+	后代选择器
+</span>
+$("#btn4").click(function (){
+	$("ul li").toggleClass("cssClass")
+})
+<span id="btn5">
+	first过滤选择器
+</span>
+$("#btn5").click(function (){
+		$("ul li:first").toggleClass("cssClass")
+	})
+	$("#btn5-1").click(function (){
+		$("ul li:last").toggleClass("cssClass")
+	})
+	$("#btn5-2").click(function (){
+		$("ul li:odd").toggleClass("cssClass")
+	})
+	$("#btn5-3").click(function (){
+		$("ul li:even").toggleClass("cssClass")
+	})
+	
+	$("#btn5-4").click(function (){
+		$("ul li:eq(3)").toggleClass("cssClass")
+	})
+	$("#btn5-5").click(function (){
+		$("ul li:gt(0)").toggleClass("cssClass")
+	})
+	$("#btn5-7").click(function (){
+		$("li:not(.li2)").toggleClass("cssClass")
+	})
+
+<span id="btn6">
+	属性等于选择器
+</span>
+$("#btn6").click(function (){
+		$("input[ name='ipt1']").toggleClass("cssClass")
+	})
+	$("#btn6-1").click(function (){
+		$("input[ name^='ipt2']").toggleClass("cssClass")
+	})
+	$("#btn6-2").click(function (){
+		$("input[ name$='ipt2']").toggleClass("cssClass")
+	})
+	$("#btn6-3").click(function (){
+		$("input[ name!='ipt2']").toggleClass("cssClass")
+	})
+	$("#btn6-4").click(function (){
+		$("input[ name*='ipt']").toggleClass("cssClass")
+	})
+	$("#btn6-5").click(function (){
+		$("input[ name~='ipt2']").toggleClass("cssClass")
+	})
+
+<span id="btn7">
+	表单text选择器
+</span>
+ $("#btn7").click(function (){
+		$("input:text").toggleClass("cssClass")
+	})
+	 $("#btn8").click(function (){
+		$("input:password").toggleClass("cssClass")
+	})
+
+			</pre>
+		</div>
+		
+		<h3>事件</h3>
+		<div>
+			<pre>
+$(window).resize(function () {  //缩小放大
+    $("#span").text(parseInt($("#span").text()) + 1);
+});
+
+
+$(window).scroll(function () {  //滚动条
+    $("#span").text(parseInt($("#span").text()) + 1);
+});
+
+
+$(function () { //单击
+    $("#click1").click(function () {
+        $("#click1").toggleClass("class1");
+    });
+
+    $("#click1").hover(function () { //悬停
+        $("#click1").toggleClass("class1",true);
+    },function () {
+        $("#click1").toggleClass("class1",false);
+    });
+
+    $("#inpt").focus(function () { //聚焦
+        $("#inpt").toggleClass("class1",true);
+    });
+    $("#inpt").blur(function () {  //失焦
+        $("#inpt").toggleClass("class1",false);
+    });
+
+    $("#inpt2").keydown(function () {  //键按下
+        $("#inpt2").toggleClass("class1");
+    });
+    $("#inpt3").keyup(function () {  //键松开
+        $("#inpt3").toggleClass("class1");
+    });
+    $("#inpt4").keypress(function () { 
+        $("#inpt4").toggleClass("class1");
+    });
+
+
+
+    $("#sp1").on("click",function () {
+        $("#sp1").toggleClass("class1");
+    });
+    $("#sp2").bind("click",function () {
+        $("#sp2").toggleClass("class1");
+    });
+    $("#sp3").click(function () {
+        alert("我要触发trigger事件了");
+        $("#sp1").trigger("click");
+    });
+    $("#sp4").click(function () {
+        $("#ds").append('<span onclick="alert(123)";>我是来代替live的</span>');
+    });
+});
+			</pre>
+		</div>
+			</div>
+	</body>
+</html>
